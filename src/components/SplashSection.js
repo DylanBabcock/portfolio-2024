@@ -28,7 +28,7 @@ export default function SplashSection() {
       <div style={{ margin: isMobile ? "2rem" : "8rem", display: "flex" }}>
         {!isMobile ? (
           <img
-            src="/Assets/cat_desk.svg"
+            src={`${process.env.PUBLIC_URL}/Assets/cat_desk.svg`}
             alt="Cat desk"
             style={{ width: "350px", height: "fit-content" }}
           />

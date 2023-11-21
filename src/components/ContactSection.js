@@ -56,7 +56,11 @@ export default function ContactSection() {
           }}
         >
           <img
-            src={isMobile ? "/Assets/DylanSmall.png" : "/Assets/DylanMe.png"}
+            src={
+              isMobile
+                ? `${process.env.PUBLIC_URL}/Assets/DylanSmall.png`
+                : `${process.env.PUBLIC_URL}/Assets/DylanMe.png`
+            }
             style={{
               height: isMobile ? "auto" : "100%",
               width: isMobile ? "100%" : "500px",
