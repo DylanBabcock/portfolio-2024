@@ -75,7 +75,7 @@ export default function ExperienceSection() {
         degree="Intern III"
         dates="05/15/2023 - current"
         text="At Florida Blue, as part of the Advanced Technology Solutions team, I develop web prototypes that address business challenges, blending React and NextJs for front-end efficiency and UX. My role involves collaborative problem-solving across teams, leveraging Apollo GraphQL and MongoDB for data management. This dynamic environment fosters continuous learning, pushing me to explore new technologies and refine our development processes to enhance our project's scalability and maintainability."
-        mobileText="At Florida Blue within the Advanced Technology Solutions team, I craft web prototypes leveraging React and NextJs, focusing on innovative solutions and aesthetic functionality. I collaborate on problem-solving and utilize Apollo GraphQL and MongoDB for data management, emphasizing scalable, maintainable projects."
+        mobileText="At Florida Blue within the Advanced Technology Solutions team, I craft web prototypes leveraging React and NextJs, focusing on innovative solutions and UX design. I collaborate on problem-solving and utilize Apollo GraphQL and MongoDB for data management, emphasizing scalable, maintainable projects."
       />
 
       <Divider
