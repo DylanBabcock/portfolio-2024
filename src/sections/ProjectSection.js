@@ -157,9 +157,9 @@ export default function ProjectSection() {
           <Project
             title="Price-feed-scraper 💳"
             description="Scrapes the web for the top 10 crypto currencies and their
-          relevant data."
+          relevant data. Although, here the live Bitcoin price is not from this project. Its an API call for the top crypto on page load"
             mobileDescription="Scrapes the web for the top 10 crypto currencies and their
-          relevant data."
+            relevant data. Although, here the live Bitcoin price is not from this project. Its an API call for the top crypto on page load"
             gitLink="https://github.com/DylanBabcock/price-feed-scraper"
             hover={hover2}
           />
