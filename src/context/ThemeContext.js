@@ -1,16 +1,23 @@
-// ThemeContext.js
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
-// Create a context
 export const ThemeContext = createContext();
 
-// Create a provider component
 export const MyProvider = ({ children }) => {
-  const [themeIndex, setThemeIndex] = useState(0);
-  // Function to cycle through 0, 1, 2
+  // Initialize state with theme index from local storage or default to 0
+  const [themeIndex, setThemeIndex] = useState(() => {
+    const storedThemeIndex = localStorage.getItem("themeIndex");
+    return storedThemeIndex !== null ? Number(storedThemeIndex) : 0;
+  });
+
   const toggleThemeIndex = () => {
     setThemeIndex((prevIndex) => (prevIndex + 1) % 3);
   };
+
+  // Use useEffect to update local storage whenever themeIndex changes
+  useEffect(() => {
+    localStorage.setItem("themeIndex", themeIndex);
+  }, [themeIndex]);
+
   return (
     <ThemeContext.Provider value={{ themeIndex, toggleThemeIndex }}>
       {children}
@@ -18,5 +25,4 @@ export const MyProvider = ({ children }) => {
   );
 };
 
-// Custom hook for using this context
 export const useThemeContext = () => useContext(ThemeContext);
