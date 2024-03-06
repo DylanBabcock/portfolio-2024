@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Header from "./components/Header";
-import DragSection from "./components/DragSection";
-import SplashSection from "./components/SplashSection";
-import Experience from "./components/Experience";
-import ContactSection from "./components/ContactSection";
+import ProjectSection from "./sections/ProjectSection";
+import SplashSection from "./sections/SplashSection";
+import ExperienceSection from "./sections/ExperienceSection";
+import ContactSection from "./sections/ContactSection";
 import ConfettiExplosion from "react-confetti-explosion";
 import { ThemeUIProvider } from "theme-ui";
 import { theme } from "./context/theme";
 import { MyProvider } from "./context/ThemeContext";
 function App() {
   const [isExploding, setIsExploding] = React.useState(false);
-  const bottomElementRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,11 +33,11 @@ function App() {
           <ContactSection />
           <Header />
           <SplashSection />
-          <DragSection />
-          <Experience />
-          {/* This should stay empty */}
+          <ProjectSection />
+          <ExperienceSection />
           {isExploding && <ConfettiExplosion />}
-          <div style={{ marginBottom: "100vh" }}></div>
+          {/* This should stay empty with a marginBottom */}
+          <div className="mb-[100vh]"></div>
         </ThemeUIProvider>
       </MyProvider>
     </>

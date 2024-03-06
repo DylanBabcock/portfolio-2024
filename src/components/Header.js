@@ -1,28 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useThemeContext } from "../context/ThemeContext";
 import { useThemeUI } from "theme-ui";
 export default function Header() {
   const { themeIndex } = useThemeContext();
   const { theme } = useThemeUI();
+  const customTheme = theme.colors[themeIndex];
+
   return (
     <div
+      className={`flex absolute w-full h-[5rem] justify-between `}
       style={{
-        display: "flex",
-        position: "absolute",
-        width: "100%",
-        height: "70px",
-        justifyContent: "space-between",
-        color: theme.colors[themeIndex].text,
+        color: customTheme.text,
       }}
     >
       <h2
+        className={`m-0 mt-[2rem] ml-[10%] text-[3rem] self-center font-thin `}
         style={{
-          margin: "2rem 0 0 10%",
-          fontSize: "3rem",
-          alignSelf: "center",
-          fontWeight: 100,
-          color: theme.colors[themeIndex].primary,
+          color: customTheme.primary,
         }}
       >
         Dylan

@@ -4,14 +4,15 @@ import { useThemeContext } from "../context/ThemeContext";
 import { useThemeUI } from "theme-ui";
 import useIsMobile from "../context/useIsMobile";
 const ThemeToggleButton = () => {
+  const isMobile = useIsMobile();
   const { toggleThemeIndex } = useThemeContext();
   const { themeIndex } = useThemeContext();
   const { theme } = useThemeUI();
+  const customTheme = theme.colors[themeIndex];
+
   const [hover, setHover] = useState(false);
-  const isMobile = useIsMobile();
-  const [buttonColor, setButtonColor] = useState(
-    theme.colors[themeIndex].background
-  );
+  const [buttonColor, setButtonColor] = useState(customTheme.background);
+
   let currentTheme = "";
   if (themeIndex === 0) {
     currentTheme = "light";
@@ -20,40 +21,37 @@ const ThemeToggleButton = () => {
   } else {
     currentTheme = "dracula";
   }
-  useEffect(() => {
+
+  function determineButtonColor() {
     if (isMobile) {
-      setButtonColor(
-        hover
-          ? theme.colors[themeIndex].primary
-          : theme.colors[themeIndex].background
-      );
+      setButtonColor(hover ? customTheme.primaryAlt : customTheme.background);
     } else {
       setButtonColor(
-        hover
-          ? theme.colors[themeIndex].primary
-          : theme.colors[themeIndex].backgroundAlt
+        hover ? customTheme.primaryAlt : customTheme.backgroundAlt
       );
     }
+  }
+  useEffect(() => {
+    determineButtonColor();
   }, [hover, isMobile]);
 
   return (
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      className="m-[2rem] p-[.5rem] text-[1.5rem] rounded-[2px] h-fit cursor-pointer"
       style={{
-        margin: "2rem",
-        padding: ".5rem",
-        fontSize: "1.5rem",
-        border: `1px solid ${theme.colors[themeIndex].primary}`,
-        borderRadius: "2px",
-        height: "fit-content",
-        cursor: "pointer",
+        border: `1px solid ${customTheme.primary}`,
         backgroundColor: buttonColor,
-        color: theme.colors[themeIndex].text,
+        color: customTheme.text,
       }}
-      onClick={toggleThemeIndex}
+      onClick={() => {
+        // Do this to trigger the useEffect
+        setHover(!hover);
+        toggleThemeIndex();
+      }}
     >
-      <p style={{ margin: "0", padding: "0" }}>{currentTheme}</p>
+      <p className="m-0 p-0">{currentTheme}</p>
     </div>
   );
 };

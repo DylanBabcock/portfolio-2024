@@ -11,47 +11,32 @@ import { useThemeContext } from "../context/ThemeContext";
 import { useThemeUI } from "theme-ui";
 export default function ContactSection() {
   const isMobile = useIsMobile();
+
   const { themeIndex } = useThemeContext();
   const { theme } = useThemeUI();
+  const customTheme = theme.colors[themeIndex];
+
   return (
     <div
+      className="h-screen w-screen fixed z-[-1] flex flex-col justify-center items-center"
       style={{
-        height: "100vh",
-        width: "100vw",
-        backgroundColor: theme.colors[themeIndex].backgroundAlt,
-        position: "fixed",
-        zIndex: -1,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        color: theme.colors[themeIndex].text,
+        backgroundColor: customTheme.backgroundAlt,
+        color: customTheme.text,
       }}
     >
       <div>
-        <p
-          style={{
-            margin: "0",
-            padding: "0",
-            fontSize: "4rem",
-            position: "fixed",
-          }}
-        >
-          🎉
-        </p>
+        <p className="m-0 p-0 text-[4rem] fixed">🎉</p>
 
         <div
+          className="flex justify-between"
           style={{
-            border: `3px solid ${theme.colors[themeIndex].primary}`,
-            backgroundColor: theme.colors[themeIndex].background,
+            border: `3px solid ${customTheme.primary}`,
+            backgroundColor: customTheme.background,
             borderRadius: isMobile ? "25px" : "2px",
-
             height: isMobile ? "600px" : "400px",
             width: isMobile ? "600px" : "800px",
             maxWidth: isMobile ? "320px" : "800px",
             minWidth: isMobile ? "200px" : "600px",
-            display: "flex",
-            justifyContent: "space-between",
             flexDirection: isMobile ? "column" : "row",
           }}
         >
@@ -65,27 +50,18 @@ export default function ContactSection() {
               height: isMobile ? "auto" : "100%",
               width: isMobile ? "100%" : "500px",
               borderRadius: isMobile ? "20px" : "0px",
-              borderBottomRightRadius: "5px",
-              borderBottomLeftRadius: "5px",
+              borderBottomRightRadius: isMobile ? "5px" : "0",
+              borderBottomLeftRadius: isMobile ? "5px" : "0",
             }}
           />
           <div
+            className="flex flex-col"
             style={{
               padding: isMobile ? "1.5rem .5rem 4rem .5rem" : "1.5rem",
-              display: "flex",
-              flexDirection: "column",
               width: isMobile ? "auto" : "100%",
             }}
           >
-            <p
-              style={{
-                margin: "0",
-                padding: "0 0 1rem 0",
-                fontSize: "1.75rem",
-                fontWeight: 400,
-                alignSelf: "center",
-              }}
-            >
+            <p className="m-0 p-0 pb-[1rem] text-[1.75rem] font-normal self-center">
               Contact Me 💬
             </p>
             <ContactCard

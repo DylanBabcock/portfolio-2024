@@ -9,6 +9,7 @@ export const theme = {
     //Light theme index 0
     {
       primary: "#020122",
+      primaryAlt: "#00a8a5",
       background: "#FFFFFF",
       backgroundAlt: "#5BC0BE",
       backgroundAlt2: "#3A506B",
@@ -19,6 +20,7 @@ export const theme = {
     // dark theme index 1
     {
       primary: "#F3DFA2",
+      primaryAlt: "#0b0c12",
       background: "#1B2432",
       backgroundAlt: "#121420",
       backgroundAlt2: "#39304A",
@@ -29,6 +31,7 @@ export const theme = {
     // dracula theme index 2
     {
       primary: "#50fa7b",
+      primaryAlt: "#363845",
       background: "#44475a",
       backgroundAlt: "#282a36",
       backgroundAlt2: "#202030",
