@@ -110,7 +110,9 @@ export default function ProjectSection() {
       }}
     >
       <h2 className="text-[4rem] font-thin m-0">Projects</h2>
-      <p className="text-[1rem] m-0 p-0 mb-[4rem]">dnd, because why not 😎</p>
+      <p className="text-[1rem] m-0 p-0 mb-[4rem]">
+        drag 'n' drop, because why not 😎
+      </p>
 
       {/* First Project */}
 
