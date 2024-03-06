@@ -23,34 +23,34 @@ export default function ProjectSection() {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   // Fetch the top crypto currency and its price
-  // useEffect(() => {
-  //   const apiUrl =
-  //     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1&page=1";
+  useEffect(() => {
+    const apiUrl =
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1&page=1";
 
-  //   fetch(apiUrl)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error(`API call failed with status: ${response.status}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       if (data && data.length > 0) {
-  //         const formattedPrice = formatNumberWithCommas(data[0].current_price);
-  //         setTopCrypto({
-  //           name: data[0].name,
-  //           price: formattedPrice,
-  //         });
-  //       } else {
-  //         // Handle case where data is empty or not as expected
-  //         throw new Error("No data returned from API");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Fetch error:", error);
-  //       message.error("error fetching crypto :(");
-  //     });
-  // }, []);
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`API call failed with status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          const formattedPrice = formatNumberWithCommas(data[0].current_price);
+          setTopCrypto({
+            name: data[0].name,
+            price: formattedPrice,
+          });
+        } else {
+          // Handle case where data is empty or not as expected
+          throw new Error("No data returned from API");
+        }
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        message.error("error fetching crypto :(");
+      });
+  }, []);
 
   const Project = ({
     title,
